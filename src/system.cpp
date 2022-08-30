@@ -22,7 +22,9 @@ Processor& System::Cpu(){
     return cpu_;
 }
 
+/*
 // TODO: Return a container composed of the system's processes
+//This fuction is causing segmentation fault
 vector<Process>& System::Processes(){
     vector<int>line_of_pids = LinuxParser::Pids();
     processes_ = {};
@@ -30,6 +32,19 @@ vector<Process>& System::Processes(){
     while(i < line_of_pids.size()){
         processes_.emplace_back(i);
         i++;
+    }
+    std::sort(processes_.begin(), processes_.end());
+    return processes_;
+}
+*/
+// TODO: Return a container composed of the system's processes
+vector<Process>& System::Processes(){
+    processes_.clear();
+    vector<int>line_of_pids = {};
+    line_of_pids = LinuxParser::Pids();
+    for (auto i : line_of_pids){
+        Process ps(i);
+        processes_.push_back(ps);
     }
     std::sort(processes_.begin(), processes_.end());
     return processes_;
