@@ -108,7 +108,7 @@ float LinuxParser::MemoryUtilization(){
 long LinuxParser::UpTime(){
   //run time
   // convert string to integer
-  long t3 = 0;
+  long int t3 = 0;
   string t1, t2;
   string l;
   std::ifstream stm(kProcDirectory + kUptimeFilename);
