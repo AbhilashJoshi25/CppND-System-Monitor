@@ -1,12 +1,27 @@
-#ifndef PROCESSOR_H
-#define PROCESSOR_H
+#ifndef PROCESS_H
+#define PROCESS_H
 
-class Processor {
+#include <string>
+/*
+Basic class for Process representation
+It contains relevant attributes as shown below
+*/
+class Process {
  public:
-  float Utilization();  // TODO: See src/processor.cpp
+  Process(int idx);
+  int Pid();                               // TODO: See src/process.cpp
+  std::string User();                      // TODO: See src/process.cpp
+  std::string Command();                   // TODO: See src/process.cpp
+  float CpuUtilization();                  // TODO: See src/process.cpp
+  std::string Ram();                       // TODO: See src/process.cpp
+  long int UpTime();                       // TODO: See src/process.cpp
+  bool operator<(Process const& a) const;  // TODO: See src/process.cpp
 
   // TODO: Declare any necessary private members
  private:
+    int p;
+    float c;
+    int r;
 };
 
 #endif
